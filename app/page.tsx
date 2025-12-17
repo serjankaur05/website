@@ -9,13 +9,48 @@ type Item = {
   tags?: string[];
 };
 
+const PROJECTS: Item[] = [
+  {
+    title: "ClimateCode.io — GPT-powered Code Analysis CLI",
+    description:
+      "Built a GPT-powered CLI that analyzes Python code via AST parsing. Improved runtime by 17% and designed a modular plugin architecture for extendable quality checks.",
+    href: "#", // TODO: replace with GitHub/demo link
+    meta: "Python • OpenAI API • AST",
+    tags: ["Python", "OpenAI API", "AST", "CLI"],
+  },
+  {
+    title: "Geospatial AI for Disaster Mitigation",
+    description:
+      "Trained a CNN to predict landslide risk zones and built a Flask dashboard for real-time inference. Reduced emergency alert response time by 20% via an automated prediction pipeline.",
+    href: "#", // TODO: replace with GitHub/demo link
+    meta: "TensorFlow • Flask • QGIS",
+    tags: ["TensorFlow", "Flask", "Computer Vision", "Geospatial"],
+  },
+  {
+    title: "Smiley — Mood & Productivity Prediction App",
+    description:
+      "Built a cross-platform Flutter app that predicts mood/productivity with 82% accuracy. Integrated Firebase for auth, real-time storage, and analytics.",
+    href: "#", // TODO: replace with GitHub/demo link
+    meta: "Flutter • Firebase • ML",
+    tags: ["Flutter", "Firebase", "ML", "Mobile"],
+  },
+  {
+    title: "Fake News Detector",
+    description:
+      "Built a TF-IDF + Logistic Regression pipeline achieving 91% precision / 87% recall. Presented the project’s design and ML pipeline at Microsoft Toronto.",
+    href: "#", // TODO: replace with GitHub/demo link
+    meta: "NLP • Scikit-learn",
+    tags: ["NLP", "Scikit-learn", "ML", "Classification"],
+  },
+];
+
 const BLOGS: Item[] = [
   {
     title: "Uncovering the Surprise Response",
     description:
       "Using machine learning to analyze EEG data and explore how the brain reacts to unexpected stimuli.",
     href: "https://medium.com/@serjankaur/uncovering-the-surprise-response-using-machine-learning-to-analyze-eeg-data-a2e1afd6d450",
-    meta: "Medium • EEG + ML",
+    meta: "EEG + ML",
     tags: ["ML", "EEG", "Research"],
   },
   {
@@ -23,59 +58,40 @@ const BLOGS: Item[] = [
     description:
       "A BCI-driven approach to learning and accessibility—where neuroscience meets practical education outcomes.",
     href: "https://medium.com/studentsxstudents/solving-the-education-crisis-using-brain-computer-interface-b793e2c8ca01",
-    meta: "Medium • BCI",
+    meta: "BCI",
     tags: ["BCI", "Education", "Systems"],
   },
   {
     title: "Using ML in Personality Analysis",
     description:
-      "A look at how machine learning can model behavioral traits—plus the tradeoffs, bias risks, and limits.",
+      "How ML can model behavioral traits—plus the tradeoffs, bias risks, and limits.",
     href: "https://medium.com/innonation-publication/using-ml-in-personality-analysis-65ce7d1d635b",
-    meta: "Medium • ML + Behavior",
+    meta: "ML + Behavior",
     tags: ["ML", "Ethics", "Data"],
   },
   {
     title: "ML Can Help Detect Fake News (and this isn’t fake news)",
     description:
-      "How ML approaches misinformation detection, what features matter, and where models fail in the real world.",
+      "How misinformation detection works, what features matter, and where models fail in the real world.",
     href: "https://medium.com/@serjankaur/breaking-news-ml-can-help-detect-fake-news-and-this-isnt-fake-news-e1629268bb20",
-    meta: "Medium • NLP",
+    meta: "NLP",
     tags: ["NLP", "ML", "Trust & Safety"],
   },
   {
     title: "A Crossover Between AI and Advertising",
     description:
-      "Where AI actually helps in marketing—from targeting and measurement to creative iteration and personalization.",
+      "Where AI helps in marketing—targeting, measurement, creative iteration, and personalization.",
     href: "https://medium.com/@serjankaur/a-crossover-between-ai-and-advertising-7b95568bf863",
-    meta: "Medium • AI x Ads",
+    meta: "AI x Ads",
     tags: ["AI", "Marketing", "Product"],
   },
   {
     title: "A Quick Review of Deep Neural Networks",
     description:
-      "A simple, practical overview of deep neural networks—what they do well, and what to watch out for.",
+      "A practical overview of deep neural networks—what they do well and what to watch out for.",
     href: "https://medium.com/@serjankaur/a-quick-review-of-deep-neural-network-73188709a00a",
-    meta: "Medium • Deep Learning",
+    meta: "Deep Learning",
     tags: ["Deep Learning", "Foundations", "ML"],
-  },
-];
-
-const PROJECTS: Item[] = [
-  {
-    title: "GPT-Powered Code Analysis CLI",
-    description:
-      "CLI tool that analyzes Python code using AST parsing and generates actionable insights.",
-    href: "#",
-    meta: "Python • AST • LLM tooling",
-    tags: ["Python", "AST", "LLM"],
-  },
-  {
-    title: "Portfolio (Next.js + Tailwind)",
-    description:
-      "FAANG-style portfolio with clean UX, fast performance, and deploy-ready setup.",
-    href: "#",
-    meta: "Next.js • Tailwind • Vercel",
-    tags: ["Next.js", "Tailwind", "Vercel"],
   },
 ];
 
@@ -83,30 +99,77 @@ const EXPERIENCE: Array<{
   role: string;
   org: string;
   timeframe: string;
+  location?: string;
   bullets: string[];
 }> = [
   {
-    role: "Computer Science Student",
-    org: "Western University",
-    timeframe: "2023 — Present",
+    role: "Head Intern",
+    org: "Achievable — EdTech Startup",
+    timeframe: "Oct 2025 — Present",
+    location: "Remote",
     bullets: [
-      "Building software projects end-to-end with a focus on clarity, reliability, and clean UX.",
-      "Interested in developer tools, applied ML, and systems that reduce real-world workflow friction.",
+      "Built internal analytics dashboards using JavaScript, Python, and Firebase to track user engagement and product metrics.",
+      "Implemented A/B testing infrastructure with custom event logging, improving conversion rates by 15%.",
+      "Developed reusable front-end components for student-facing pages using HTML/CSS/JavaScript.",
+    ],
+  },
+  {
+    role: "Project Consultant — FuturePath",
+    org: "Riipen",
+    timeframe: "Sept 2024 — Present",
+    location: "Remote",
+    bullets: [
+      "Delivered 4+ technical consulting projects focused on API integrations, automation engineering, and CRM architecture.",
+      "Developed workflow automations using Notion API, Airtable API, and Zapier, reducing admin workload by 50%.",
+      "Built Python scripts and webhook-triggered pipelines to sync data across internal systems.",
+    ],
+  },
+  {
+    role: "Technology Lead",
+    org: "Pioneer Medcare — Healthcare Startup",
+    timeframe: "Jan 2024 — Present",
+    location: "Toronto, ON",
+    bullets: [
+      "Engineered Shopify ecommerce platform using Liquid, JavaScript, and HTML/CSS for 200+ medical SKUs.",
+      "Built automation pipelines using Zapier, Apps Script, and Python to sync orders, inventory, and analytics, cutting operations time by 40%.",
+      "Integrated Amazon Seller Central APIs, automating product listings and increasing marketplace revenue by 3x.",
+      "Built internal tools for catalog optimization and metadata generation using Python.",
+    ],
+  },
+  {
+    role: "Vice President, Events",
+    org: "Western Cyber Society",
+    timeframe: "Sept 2025 — Present",
+    location: "London, ON",
+    bullets: [
+      "Led technical execution of FAANG Day and IBM Night, organizing workshops on AI, cloud computing, and software engineering.",
+      "Implemented automation scripts for event scheduling, registrations, and logistics using Notion API.",
+      "Partnered with IBM and Deloitte engineers to deliver hands-on technical sessions.",
     ],
   },
 ];
 
-const SKILLS: string[] = [
-  "TypeScript",
-  "JavaScript",
-  "React",
-  "Next.js",
-  "Tailwind CSS",
-  "Python",
-  "Git",
-  "APIs",
-  "Data Structures",
-  "ML fundamentals",
+const SKILLS: { label: string; items: string[] }[] = [
+  {
+    label: "Languages",
+    items: ["Python", "JavaScript (ES6+)", "TypeScript", "C++", "HTML", "CSS", "Liquid"],
+  },
+  {
+    label: "Frameworks",
+    items: ["React", "Next.js", "Node.js", "TensorFlow", "Flask", "Express"],
+  },
+  {
+    label: "Tools",
+    items: ["Git", "Firebase", "Docker", "AWS (Lambda, S3)", "Stripe API", "Zapier", "Google Apps Script"],
+  },
+  {
+    label: "Databases",
+    items: ["MySQL", "MongoDB", "Firestore"],
+  },
+  {
+    label: "Other",
+    items: ["REST APIs", "CI/CD", "Notion API", "Airtable API", "Figma", "OpenAI API"],
+  },
 ];
 
 function Pill({ children }: { children: React.ReactNode }) {
@@ -132,9 +195,7 @@ function Section({
     <section id={id} className="scroll-mt-24 py-10">
       <div className="mb-5">
         <h2 className="text-xl font-semibold text-zinc-900">{title}</h2>
-        {subtitle ? (
-          <p className="mt-1 text-sm text-zinc-600">{subtitle}</p>
-        ) : null}
+        {subtitle ? <p className="mt-1 text-sm text-zinc-600">{subtitle}</p> : null}
       </div>
       {children}
     </section>
@@ -155,14 +216,10 @@ function Card({ item }: { item: Item }) {
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h3 className="text-base font-semibold text-zinc-900">
-            {item.title}
-          </h3>
+          <h3 className="text-base font-semibold text-zinc-900">{item.title}</h3>
           <p className="mt-1 text-sm text-zinc-600">{item.description}</p>
         </div>
-        {item.meta ? (
-          <span className="shrink-0 text-xs text-zinc-500">{item.meta}</span>
-        ) : null}
+        {item.meta ? <span className="shrink-0 text-xs text-zinc-500">{item.meta}</span> : null}
       </div>
 
       {item.tags?.length ? (
@@ -212,33 +269,28 @@ export default function Page() {
       <div className="mx-auto max-w-5xl px-4 py-10">
         {/* Hero */}
         <header className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm">
-          <p className="text-sm text-zinc-600">Third-year CS student</p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl">
-            I build clean, reliable software — and I like turning complex ideas
-            into simple products.
+          <p className="text-sm text-zinc-600">BSc Computer Science • Western University (2023–2027)</p>
+
+          <h1 className="mt-2 text-4xl font-semibold tracking-tight text-zinc-900 md:text-5xl">
+            Ideas in. Software out.
           </h1>
+
           <p className="mt-4 max-w-2xl text-zinc-600">
-            Interested in developer tools, applied ML, and systems that reduce
-            real-world workflow friction.
+            I build automation-first software and developer tools—shipping products that reduce manual work, improve
+            reliability, and move fast from prototype to production.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="https://serjankaur.com"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
-            >
-              Portfolio
-            </a>
+            {/* TODO: replace LinkedIn URL if needed */}
             <a
               href="https://www.linkedin.com/in/serjan"
               target="_blank"
               rel="noreferrer"
-              className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-900 hover:border-zinc-300"
+              className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
             >
               LinkedIn
             </a>
+
             <a
               href="https://medium.com/@serjankaur"
               target="_blank"
@@ -247,6 +299,7 @@ export default function Page() {
             >
               Medium
             </a>
+
             <a
               href="/resume.pdf"
               target="_blank"
@@ -256,23 +309,19 @@ export default function Page() {
               Resume
             </a>
           </div>
+
+          <p className="mt-4 text-xs text-zinc-500">
+            Tip: Replace the “#” links on project cards with GitHub or demo URLs when ready.
+          </p>
         </header>
 
         {/* Projects */}
-        <Section
-          id="projects"
-          title="Projects"
-          subtitle="A few things I’ve built recently."
-        >
+        <Section id="projects" title="Projects" subtitle="Selected projects with measurable outcomes.">
           <div className="grid gap-4 md:grid-cols-2">
             {PROJECTS.map((p) => (
               <Card key={p.title} item={p} />
             ))}
           </div>
-          <p className="mt-4 text-sm text-zinc-500">
-            Tip: Replace the “#” links above with your GitHub or demo URLs when
-            ready.
-          </p>
         </Section>
 
         {/* Blogs */}
@@ -289,7 +338,7 @@ export default function Page() {
         </Section>
 
         {/* Experience */}
-        <Section id="experience" title="Experience">
+        <Section id="experience" title="Experience" subtitle="Work across product, automation, and execution.">
           <div className="space-y-4">
             {EXPERIENCE.map((e) => (
               <div
@@ -300,6 +349,7 @@ export default function Page() {
                   <div className="text-zinc-900">
                     <span className="font-semibold">{e.role}</span>{" "}
                     <span className="text-zinc-500">• {e.org}</span>
+                    {e.location ? <span className="text-zinc-400"> • {e.location}</span> : null}
                   </div>
                   <div className="text-sm text-zinc-500">{e.timeframe}</div>
                 </div>
@@ -315,9 +365,16 @@ export default function Page() {
 
         {/* Skills */}
         <Section id="skills" title="Skills">
-          <div className="flex flex-wrap gap-2">
-            {SKILLS.map((s) => (
-              <Pill key={s}>{s}</Pill>
+          <div className="space-y-4">
+            {SKILLS.map((group) => (
+              <div key={group.label} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+                <div className="text-sm font-semibold text-zinc-900">{group.label}</div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {group.items.map((s) => (
+                    <Pill key={`${group.label}-${s}`}>{s}</Pill>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </Section>
@@ -326,12 +383,13 @@ export default function Page() {
         <Section id="contact" title="Contact">
           <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
             <p className="text-zinc-700">
-              If you’d like to collaborate or chat about an opportunity, the
-              fastest way to reach me is email.
+              If you’re hiring or want to collaborate, email is the fastest way to reach me.
             </p>
+
             <div className="mt-4 flex flex-wrap gap-3">
+              {/* TODO: replace with your preferred email */}
               <a
-                href="mailto:serjankaur@email.com"
+                href="mailto:serjankaur@gmail.com"
                 className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
               >
                 Email me
@@ -345,9 +403,6 @@ export default function Page() {
                 LinkedIn
               </a>
             </div>
-            <p className="mt-3 text-xs text-zinc-500">
-              (Replace the email + LinkedIn URL with your exact links.)
-            </p>
           </div>
         </Section>
 
