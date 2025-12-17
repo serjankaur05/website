@@ -311,7 +311,6 @@ export default function Page() {
           </div>
 
           <p className="mt-4 text-xs text-zinc-500">
-            Tip: Replace the “#” links on project cards with GitHub or demo URLs when ready.
           </p>
         </header>
 
@@ -392,7 +391,7 @@ export default function Page() {
                 href="mailto:serjankaur@gmail.com"
                 className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
               >
-                Email me
+                serjankaur@gmail.com
               </a>
               <a
                 href="https://www.linkedin.com/in/serjan"
