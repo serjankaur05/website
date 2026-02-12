@@ -102,10 +102,24 @@ const EXPERIENCE: Array<{
   location?: string;
   bullets: string[];
 }> = [
+
+  {
+  role: "Operations Intern",
+  org: "Liva AI — AI Startup",
+  timeframe: "Jan 2026 — Present",
+  location: "Remote",
+  bullets: [
+    "Optimized internal operational workflows across product and engineering teams to improve execution speed and reduce process friction.",
+    "Collaborated cross-functionally to streamline feature rollouts and improve coordination between technical and non-technical stakeholders.",
+    "Implemented lightweight automation and structured documentation systems to support scalable growth.",
+    "Tracked operational metrics and identified bottlenecks to support data-driven decision-making."
+  ]
+},
+  
   {
     role: "Head Intern",
     org: "Achievable — EdTech Startup",
-    timeframe: "Oct 2025 — Present",
+    timeframe: "Oct 2025 — Decembr 2025",
     location: "Remote",
     bullets: [
       "Built internal analytics dashboards using JavaScript, Python, and Firebase to track user engagement and product metrics.",
@@ -116,7 +130,7 @@ const EXPERIENCE: Array<{
   {
     role: "Project Consultant — FuturePath",
     org: "Riipen",
-    timeframe: "Sept 2024 — Present",
+    timeframe: "Sept 2024 — Sept 2025",
     location: "Remote",
     bullets: [
       "Delivered 4+ technical consulting projects focused on API integrations, automation engineering, and CRM architecture.",
