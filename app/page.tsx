@@ -10,6 +10,32 @@ type Item = {
 };
 
 const PROJECTS: Item[] = [
+  
+  {
+    title: "Constraint-Based Exam Scheduling Engine",
+    description:
+      "Designed and deployed an optimization-based exam scheduling system using Google OR-Tools (CP-SAT) on enrollment-style data (~1000 students, ~100 courses). The model enforces clash-free schedules and per-day fairness constraints, with a live Streamlit interface for exploring global and per-student timetables.",
+    href: "https://examscheduler.streamlit.app",
+    meta: "Operations Research • Optimization",
+    tags: ["Python", "OR-Tools", "Optimization", "Constraint Programming", "Streamlit"],
+  },
+  {
+    title: "Shopify Store Analytics Engine",
+    description:
+      "Built an interactive ecommerce analytics dashboard that transforms raw transaction data into merchant-facing insights. Implemented revenue tracking, repeat customer analysis, top product performance, and RFM-style customer segmentation in a Streamlit app.",
+    href: "https://shopify-analytics-engine.streamlit.app/",
+    meta: "Data Analytics • Ecommerce",
+    tags: ["Python", "Pandas", "Plotly", "Streamlit", "Analytics"],
+  },
+  {
+    title: "Universal Ride Price Comparison Engine",
+    description:
+      "Built a ride comparison engine that evaluates multiple transportation options and recommends the cheapest, fastest, and best-value ride using route, pricing, and scoring logic. Designed as a product-style decision tool with interactive provider comparison.",
+    href: "https://ride-price-engine.streamlit.app/",
+    meta: "Product Systems • Transportation",
+    tags: ["Python", "Streamlit", "Data Modeling", "Recommendation Logic", "Analytics"],
+  },
+
   {
     title: "ClimateCode.io — GPT-powered Code Analysis CLI",
     description:
@@ -26,22 +52,7 @@ const PROJECTS: Item[] = [
     meta: "TensorFlow • Flask • QGIS",
     tags: ["TensorFlow", "Flask", "Computer Vision", "Geospatial"],
   },
-  {
-    title: "Smiley — Mood & Productivity Prediction App",
-    description:
-      "Built a cross-platform Flutter app that predicts mood/productivity with 82% accuracy. Integrated Firebase for auth, real-time storage, and analytics.",
-    href: "#", // TODO: replace with GitHub/demo link
-    meta: "Flutter • Firebase • ML",
-    tags: ["Flutter", "Firebase", "ML", "Mobile"],
-  },
-  {
-    title: "Fake News Detector",
-    description:
-      "Built a TF-IDF + Logistic Regression pipeline achieving 91% precision / 87% recall. Presented the project’s design and ML pipeline at Microsoft Toronto.",
-    href: "#", // TODO: replace with GitHub/demo link
-    meta: "NLP • Scikit-learn",
-    tags: ["NLP", "Scikit-learn", "ML", "Classification"],
-  },
+
 ];
 
 const BLOGS: Item[] = [
@@ -329,7 +340,7 @@ export default function Page() {
         </header>
 
         {/* Projects */}
-        <Section id="projects" title="Projects" subtitle="Selected projects with measurable outcomes.">
+        <Section id="projects" title="Projects" subtitle="Selected product, optimization, and analytics projects.">
           <div className="grid gap-4 md:grid-cols-2">
             {PROJECTS.map((p) => (
               <Card key={p.title} item={p} />
