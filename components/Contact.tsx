@@ -3,7 +3,7 @@ const LINKS = [
   { label: "GitHub", url: "https://github.com/serjankaur05/", mono: true },
   { label: "LinkedIn", url: "https://www.linkedin.com/in/serjan-kaur-/", mono: true },
   { label: "Medium", url: "https://medium.com/@serjankaur", mono: true },
-  { label: "Resume (PDF)", url: "/resume(2).pdf", mono: false },
+  { label: "Resume (PDF)", url: "/resume.pdf", mono: false },
 ];
 
 export default function Contact() {
