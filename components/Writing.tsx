@@ -1,3 +1,4 @@
+"use client";
 const POSTS = [
   {
     title: "Uncovering the Surprise Response",

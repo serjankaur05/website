@@ -1,3 +1,4 @@
+"use client";
 const LINKS = [
   { label: "GitHub", url: "https://github.com/serjankaur05/", mono: true },
   { label: "LinkedIn", url: "https://linkedin.com", mono: true },
