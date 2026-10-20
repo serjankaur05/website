@@ -1,21 +1,24 @@
 import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
+import Work from "@/components/Work";
 import Experience from "@/components/Experience";
+import SystemsMap from "@/components/SystemsMap";
 import Writing from "@/components/Writing";
-import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
-import Nav from "@/components/Nav";
 
 export default function Home() {
   return (
-    <main className="bg-[#0a0a0a] min-h-screen text-[#e8e6e1]">
-      <Nav />
+    <>
+      <a href="#work" className="skip-link">
+        Skip to work
+      </a>
       <Hero />
-      <Projects />
-      <Experience />
-      <Writing />
-      <Skills />
+      <main>
+        <Work />
+        <Experience />
+        <SystemsMap />
+        <Writing />
+      </main>
       <Contact />
-    </main>
+    </>
   );
 }
