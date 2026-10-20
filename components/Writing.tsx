@@ -1,235 +1,72 @@
-"use client";
-const POSTS = [
-  {
-    title: "Uncovering the Surprise Response",
-    subtitle: "Using machine learning to analyze EEG data and explore how the brain reacts to unexpected stimuli.",
-    tags: ["EEG", "ML", "Research"],
-    url: "https://medium.com/@serjankaur/uncovering-the-surprise-response-using-machine-learning-to-analyze-eeg-data-a2e1afd6d450",
-    date: "Dec 2022",
-    accent: "#c8f066",
-  },
-  {
-    title: "Solving the Education Crisis Using Brain–Computer Interface",
-    subtitle: "A BCI-driven approach to learning and accessibility — where neuroscience meets practical outcomes.",
-    tags: ["BCI", "Education", "Systems"],
-    url: "https://medium.com/studentsxstudents/solving-the-education-crisis-using-brain-computer-interface-b793e2c8ca01",
-    date: "Oct 2022",
-    accent: "#6ba3ff",
-  },
-  {
-    title: "Using ML in Personality Analysis",
-    subtitle: "How ML can model behavioral traits — plus the tradeoffs, bias risks, and limits of the approach.",
-    tags: ["ML", "Ethics", "Data"],
-    url: "https://medium.com/innonation-publication/using-ml-in-personality-analysis-65ce7d1d635b",
-    date: "Jul 2022",
-    accent: "#c8f066",
-  },
-  {
-    title: "ML Can Help Detect Fake News (and This Isn't Fake News)",
-    subtitle: "How misinformation detection works, what features matter, and where models fail in the real world.",
-    tags: ["NLP", "ML", "Trust & Safety"],
-    url: "https://medium.com/@serjankaur/breaking-news-ml-can-help-detect-fake-news-and-this-isnt-fake-news-e1629268bb20",
-    date: "Feb 2022",
-    accent: "#f0b429",
-  },
-  {
-    title: "A Crossover Between AI and Advertising",
-    subtitle: "Where AI helps in marketing — targeting, measurement, creative iteration, and personalization.",
-    tags: ["AI", "Marketing", "Product"],
-    url: "https://medium.com/@serjankaur/a-crossover-between-ai-and-advertising-7b95568bf863",
-    date: "2022",
-    accent: "#6ba3ff",
-  },
-  {
-    title: "A Quick Review of Deep Neural Networks",
-    subtitle: "A practical overview of deep neural networks — what they do well and where to watch out.",
-    tags: ["Deep Learning", "Foundations", "ML"],
-    url: "https://medium.com/@serjankaur",
-    date: "2022",
-    accent: "#c8f066",
-  },
-];
+import { ARTICLES, LINKS } from "@/lib/content";
+
+// A small trace, unique to each title, like a line on a lab recording.
+function hash(s: string) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
+  return h >>> 0;
+}
+
+function Trace({ seed }: { seed: string }) {
+  let h = hash(seed);
+  const rnd = () => {
+    h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0;
+    h = Math.imul(h ^ (h >>> 13), 3266489909) >>> 0;
+    return ((h ^= h >>> 16) >>> 0) / 4294967296;
+  };
+  const f1 = 1 + rnd() * 3;
+  const f2 = 4 + rnd() * 6;
+  const spike = 0.2 + rnd() * 0.6;
+  const pts: string[] = [];
+  for (let x = 0; x <= 120; x += 2) {
+    const t = x / 120;
+    const bump = Math.exp(-Math.pow((t - spike) * 9, 2)) * 14;
+    const y =
+      20 -
+      Math.sin(t * Math.PI * 2 * f1) * 5 -
+      Math.sin(t * Math.PI * 2 * f2) * 2 -
+      bump * (rnd() > 0.5 ? 1 : -0.6);
+    pts.push(`${x},${y.toFixed(1)}`);
+  }
+  return (
+    <svg className="trace" viewBox="0 0 120 40" aria-hidden="true" focusable="false">
+      <polyline points={pts.join(" ")} />
+    </svg>
+  );
+}
 
 export default function Writing() {
   return (
-    <section
-      id="writing"
-      style={{
-        maxWidth: "860px",
-        margin: "0 auto",
-        padding: "0 2rem 8rem",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
-      <div style={{ height: "1px", background: "var(--border)", marginBottom: "4rem" }} />
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-          marginBottom: "3rem",
-          flexWrap: "wrap",
-          gap: "1rem",
-        }}
-      >
-        <div>
-          <p className="section-label" style={{ marginBottom: "0.75rem" }}>
-            Writing
-          </p>
-          <h2
-            style={{
-              fontSize: "clamp(24px, 4vw, 36px)",
-              fontWeight: 300,
-              letterSpacing: "-0.02em",
-              margin: 0,
-              lineHeight: 1.2,
-            }}
-          >
-            How I think about{" "}
-            <span style={{ color: "var(--text-secondary)" }}>ML and systems.</span>
-          </h2>
-        </div>
-        <a
-          href="https://medium.com/@serjankaur"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "12px",
-            color: "var(--text-tertiary)",
-            textDecoration: "none",
-            letterSpacing: "0.04em",
-            transition: "color 0.15s",
-          }}
-          onMouseEnter={(e) =>
-            ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")
-          }
-          onMouseLeave={(e) =>
-            ((e.currentTarget as HTMLElement).style.color = "var(--text-tertiary)")
-          }
-        >
-          All posts on Medium ↗
-        </a>
+    <section id="writing" className="writing" aria-labelledby="writing-title">
+      <div className="section-intro">
+        <h2 id="writing-title" className="section-title">
+          Notes from the reading pile
+        </h2>
+        <p className="section-lede">
+          Before I was building AI tools I was writing about them: brains, misinformation, bias, and
+          what machine learning is actually good for.
+        </p>
       </div>
 
-      {/* Grid of post cards */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-          gap: "1px",
-          background: "var(--border)",
-          borderRadius: "8px",
-          overflow: "hidden",
-          border: "1px solid var(--border)",
-        }}
-      >
-        {POSTS.map((post, i) => (
-          <a
-            key={i}
-            href={post.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "block",
-              padding: "1.5rem",
-              background: "var(--bg)",
-              textDecoration: "none",
-              transition: "background 0.15s",
-              position: "relative",
-            }}
-            onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.background = "var(--bg-surface)")
-            }
-            onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.background = "var(--bg)")
-            }
-          >
-            {/* Top accent line */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                height: "2px",
-                background: post.accent,
-                opacity: 0.4,
-              }}
-            />
-
-            {/* Tags */}
-            <div style={{ display: "flex", gap: "6px", marginBottom: "1rem", flexWrap: "wrap" }}>
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="mono"
-                  style={{
-                    fontSize: "10px",
-                    color: "var(--text-tertiary)",
-                    border: "1px solid var(--border)",
-                    padding: "2px 6px",
-                    borderRadius: "3px",
-                    letterSpacing: "0.04em",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            {/* Title */}
-            <p
-              style={{
-                fontSize: "15px",
-                fontWeight: 400,
-                color: "var(--text-primary)",
-                margin: "0 0 0.6rem",
-                lineHeight: 1.4,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              {post.title}
-            </p>
-
-            {/* Subtitle */}
-            <p
-              style={{
-                fontSize: "13px",
-                color: "var(--text-secondary)",
-                margin: "0 0 1.25rem",
-                lineHeight: 1.6,
-                fontWeight: 300,
-              }}
-            >
-              {post.subtitle}
-            </p>
-
-            {/* Footer row */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <span
-                className="mono"
-                style={{ fontSize: "10px", color: "var(--text-tertiary)", letterSpacing: "0.04em" }}
-              >
-                {post.date}
+      <ol className="journal">
+        {ARTICLES.map((a) => (
+          <li key={a.url}>
+            <a href={a.url} target="_blank" rel="noopener noreferrer" className="entry">
+              <Trace seed={a.title} />
+              <span className="entry-title">{a.title}</span>
+              <span className="entry-dek">{a.dek}</span>
+              <span className="entry-meta">
+                {a.where}, {a.when}
               </span>
-              <span
-                style={{ fontSize: "12px", color: "var(--text-tertiary)", transition: "color 0.15s" }}
-              >
-                Read →
-              </span>
-            </div>
-          </a>
+            </a>
+          </li>
         ))}
-      </div>
+      </ol>
+      <p className="writing-more">
+        <a href={LINKS.medium} target="_blank" rel="noopener noreferrer">
+          Everything on Medium
+        </a>
+      </p>
     </section>
   );
 }
